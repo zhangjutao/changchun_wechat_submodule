@@ -1,0 +1,39 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-mixed-operators": "off",
+    "linebreak-style": [0 ,"error", "windows"]
+  },
+  "globals": {
+    "wx": false,
+    "App": false,
+    "Page": false,
+    "getApp": false
+  }
+}

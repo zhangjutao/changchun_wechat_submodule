@@ -1,0 +1,39 @@
+<!--newsComments.wxml-->
+<view class="newsContainer">
+  <view class="barContainer">
+    <view class="barBox">
+      <view class="comments" style="{{barStyle[0]}} " bindtap="tapBar" id="comments"> 我的留言 </view>
+      <view class="collected" style="{{barStyle[1]}} " bindtap="tapBar" id="collect"> 我的收藏 </view>
+    </view>
+  </view>
+  <view class="scrollContainer">
+    <block wx:if="{{type==='comments'}}">
+      <block wx:for="{{userInfo.commentsList}}" wx:key="">
+        <view class="newsCommentBox" style="border-color:{{item.borderColor}}" bindtap="enterDetail" id="{{index}}" data-type="comments">
+          <view class="titleContainer">
+            <image catchtap="tapCollect" id="{{index}}" data-type="comments" class="collectImg" src="{{item.iconSrc}}"> </image>
+            <view class="title">
+              <view class="titleText"> {{item.title}} </view>
+              <view class="sourceText"> {{item.source}} </view>
+            </view>
+            <view class="dateText"> {{item.date}} </view>
+          </view>
+          <view wx:for="{{item.comment}}" wx:key="" wx:for-item="comment" class="abstractText"> {{comment}} </view>
+        </view>
+      </block>
+    </block>
+    <block wx:else>
+      <block wx:for="{{userInfo.collectList}}" wx:key="">
+        <view class="newsBox" style="border-color:{{item.borderColor}}" bindtap="enterDetail" id="{{index}}" data-type="collect">
+          <image catchtap="tapCollect" id="{{index}}" data-type="collect" class="collectImg" src="{{item.iconSrc}}"> </image>
+          <view class="title">
+            <view class="titleText"> {{item.title}} </view>
+            <view class="sourceText"> {{item.source}} </view>
+          </view>
+          <view class="dateText"> {{item.date}} </view>
+        </view>
+      </block>
+    </block>
+    <view class="blankBox"> </view>
+  </view>
+</view>

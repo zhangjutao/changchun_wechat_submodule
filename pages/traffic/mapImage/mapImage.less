@@ -1,0 +1,78 @@
+.mapConatiner{
+  height: 100%;
+  width: 100%;
+  .movable-area {
+    .movable-view {
+      .mapImageGreen{
+        position: absolute;
+      }
+      .mapImageWater{
+        position: absolute;
+      }
+      .mapImage{
+        position: absolute;
+      }
+    }
+  }
+  .close-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100rpx;
+    width: 100rpx;
+  }
+  .zoom-in {
+    position: absolute;
+    bottom: 534rpx;
+    right: 25rpx;
+    height: 80rpx;
+    width: 80rpx;
+  }
+  .zoom-out {
+    position: absolute;
+    bottom: 454rpx;
+    right: 25rpx;
+    height: 80rpx;
+    width: 80rpx;
+  }
+  .legend {
+    position: absolute;
+    left: 25rpx;
+    bottom: 25rpx;
+    width: 200rpx;
+    border-radius: 10rpx;
+    // height: 220rpx;
+    background-color: whitesmoke;
+    .legend-item {
+      display: flex;
+      margin: 10rpx;
+      align-items: center;
+      justify-content: space-between;
+      .legend-item-symbol {
+        width: 30rpx;
+        height: 30rpx;
+      }
+      .legend-item-label {
+        font-size: 24rpx;
+      }
+    }
+  }
+  .summary {
+    position: absolute;
+    top: 5rpx;
+    right: 5rpx;
+    background-color: whitesmoke;
+    border-radius: 10rpx;
+    font-size: 30rpx;
+    padding: 10rpx;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 2s both;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

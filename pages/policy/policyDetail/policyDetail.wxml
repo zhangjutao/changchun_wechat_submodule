@@ -1,0 +1,18 @@
+<!--policyDetail.wxml-->
+<view class="detailContainer">
+  <view class="titleContainer">
+    <view class="titleText"> {{fileData.filename}} </view>
+  </view>
+  <view class="sourceConatiner">
+    <view class="sourceText"> 来源：{{fileData.des}} {{fileData.formatTime}} </view>
+    <!-- <view class="dateText"> {{fileData.formatTime}} </view> -->
+  </view>
+  <view wx:for="{{filesContent}}" wx:key="" class="bodyContainer">
+    <block wx:if="{{item.type==='text'}}">
+      <view class="textContainer"> {{item.content}} </view>
+    </block>
+    <block wx:else>
+      <image class="imageConatiner" src="{{item.content}}" mode="widthFix"> </image>
+    </block>
+  </view>
+</view>

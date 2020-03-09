@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/logIn/logIn",
+    "pages/traffic/traffic",
+    "pages/traffic/dynamic/dynamicTable/dynamicTable",
+    "pages/traffic/dynamic/dynamicDetail/dynamicDetail",
+    "pages/traffic/detailCharts/detailCharts",
+    "pages/traffic/detailMap/detailMap",
+    "pages/traffic/indicatorList/indicatorList",
+    "pages/traffic/trafficIndex/trafficIndex",
+    "pages/traffic/aboutUs/aboutUs",
+    "pages/traffic/aboutUs/systermList/systermList",
+    "pages/traffic/aboutUs/systermList/systermDetail/systermDetail",
+    "pages/traffic/mapImage/mapImage",
+    "pages/policy/policy",
+    "pages/policy/policyTable/policyTable",
+    "pages/policy/policyDetail/policyDetail",
+    "pages/analysis/analysis",
+    "pages/search/search",
+    "pages/news/news",
+    "pages/news/newsTable/newsTable",
+    "pages/news/newsDetail/newsDetail",
+    "pages/news/newsComments/newsComments"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "交通决策在手",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#006fc5",
+    "borderStyle": "white",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/traffic/traffic",
+        "iconPath": "images/tabBar/traffic_normal.png",
+        "selectedIconPath": "images/tabBar/traffic_active.png",
+        "text": "数据中台"
+      },
+      {
+        "pagePath": "pages/analysis/analysis",
+        "iconPath": "images/tabBar/index_normal.png",
+        "selectedIconPath": "images/tabBar/index_active.png",
+        "text": "出行透镜"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "resource-file": 10000,
+    "downloadFile": 10000
+  },
+  "sitemapLocation": "sitemap.json"
+}

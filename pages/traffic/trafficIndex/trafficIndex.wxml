@@ -1,0 +1,30 @@
+<view class="trafficIndexContainer">
+  <view class="overall">
+    <view class="speed">
+      <view class="chronoGraphAndPointer" style="background-image: url({{chronoGraphSrc}});">
+        <image class="pointerStyle" style="transform: rotate({{rotateDegree}}deg)" src="{{pointerImageSrc}}"></image>
+      </view>
+      <!--<image ></image>-->
+      <view>平均时速{{averageSpeed}}公里/小时</view>
+    </view>
+    <view class="index" bindtap="test">
+      <view class="textUp">全路网</view>
+      <view class="textDown">{{viewDataTrafficIndex}}</view>
+    </view>
+  </view>
+  <view class="detailsTitle">
+    <view>区域名称</view>
+    <view>交通指数</view>
+    <view>拥堵等级</view>
+    <view>平均速度</view>
+  </view>
+  <view wx:for="{{details}}" wx:key="">
+    <view class="detail">
+      <view class="detailColor" style="background-color:{{item.color}}"></view>
+      <view class="detailRegion">{{item.region}}</view>
+      <view class="detailIndex">{{item.index}}</view>
+      <view class="detailJamLevel">{{item.jamLevel}}</view>
+      <view class="detailAverage">{{item.average}}</view>
+    </view>
+  </view>
+</view>

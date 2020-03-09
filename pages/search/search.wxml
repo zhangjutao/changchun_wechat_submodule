@@ -1,0 +1,140 @@
+<!--search.wxml-->
+<view class="searchContainer">
+  <!-- analysis 对应指标搜索 -->
+  <block wx:if="{{type==='analysis'}}">
+    <!--搜索栏  -->
+    <view class="searchboxContainer">
+      <view class="searchInputContainer">
+        <image class="searchImg" src="{{searchSrc}}"> </image>
+        <input bindinput="bindKeyInput" class="searchInput" focus value="{{inputValue}}" placeholder="搜索" placeholder-class="placeText"
+          confirm-type="search" />
+        <image hidden="{{!isMatch}}" bindtap="tapSearchDelete" class="searchDelete" src="{{deleteButtonSrc}}"> </image>
+      </view>
+      <view bindtap="tapSearchNote" class="searchNoteButton"> 取消 </view>
+    </view>
+    <!--历史热门／搜索匹配  -->
+    <block wx:if="{{isMatch}}">
+      <view class="matchContainer" wx:for="{{searchMatch}}" wx:key="">
+        <view bindtap="tapDetail" id="{{index}}" class="matchItem">
+          <view class="itemText">
+            <view class="itemTitle">
+              <view wx:for="{{item.splitTitle}}" wx:for-index="idx" wx:key="" wx:for-item="itemName">
+                <view wx:if="{{item.isRed[idx]}}" class="inputTitle"> {{itemName}} </view>
+                <view wx:else> {{itemName}} </view>
+              </view>
+            </view>
+          </view>
+          <image class="matchImg" src="{{matchSrc}}"> </image>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="searchTitle">
+        <view class="titleText"> 历史搜索 </view>
+        <image bindtap="clearHistory" data-type="analysis" class="titleImg" src="{{deleteSrc}}"> </image>
+      </view>
+      <view class="searchSuggestion">
+        <view class="suggestionItem" wx:for="{{searchHistory.analysis}}" id="{{index}}" data-entry="history" wx:key="" bindtap="searchContent">
+          <view class="suggestionText"> {{item}} </view>
+        </view>
+      </view>
+      <view class="searchTitle">
+        <view class="titleText"> 热门搜索 </view>
+        <image bindtap="clearSuggestion" class="suggestImg" src="{{eyeSrc}}"> </image>
+      </view>
+      <block wx:if="{{eyeNormal}}">
+        <view class="searchSuggestion">
+          <view class="suggestionItem" wx:for="{{searchSuggestion.analysis}}" id="{{index}}" data-entry="suggestion" wx:key="" bindtap="searchContent">
+            <view class="suggestionText"> {{item}} </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="notSee"> 当前热门搜索已隐藏 </view>
+      </block>
+    </block>
+  </block>
+  <!-- resource-file 对应文件搜索 -->
+  <block wx:elif="{{type==='resource-file'}}">
+    <!--搜索栏  -->
+    <view class="searchboxContainer">
+      <view class="searchInputContainer">
+        <image class="searchImg" src="{{searchSrc}}"> </image>
+        <input bindinput="bindKeyInput" class="searchInput" focus value="{{inputValue}}" placeholder="搜索" placeholder-class="placeText"
+          confirm-type="search" bindconfirm="confirmInput" />
+        <image hidden="{{!inputValue}}" bindtap="tapSearchDelete" class="searchDelete" src="{{deleteButtonSrc}}"> </image>
+      </view>
+      <view bindtap="tapSearchNote" class="searchNoteButton">取消</view>
+    </view>
+    <block wx:if="{{searchResult.length > 0}}">
+      <block wx:for="{{searchResult}}" wx:key="">
+        <view class="newsBox" bindtap="viewFile" id="{{index}}">
+          <view class="title">
+            <view class="titleText">
+              <block wx:for="{{item.splitTitle}}" wx:for-index="idx" wx:key="" wx:for-item="itemName">
+                <view wx:if="{{item.isRed[idx]}}" class="inputTitle"> {{itemName}} </view>
+                <view wx:else> {{itemName}} </view>
+              </block>
+            </view>
+            <view class="sourceText">{{item.source}}</view>
+          </view>
+          <view class="dateText">{{item.date}}</view>
+        </view>
+      </block>
+    </block>
+    <block wx:else>
+      <view class="searchTitle">
+        <view class="titleText"> 历史搜索 </view>
+        <image bindtap="clearHistory" data-type="resource-file" class="titleImg" src="{{deleteSrc}}"> </image>
+      </view>
+      <view class="searchSuggestion">
+        <view class="suggestionItem" wx:for="{{searchHistory['resource-file']}}" id="{{index}}" data-entry="history" wx:key="" bindtap="searchContent">
+          <view class="suggestionText"> {{item}} </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <!-- 对应资讯搜索 -->
+  <block wx:else>
+    <!--搜索栏  -->
+    <view class="searchboxContainer">
+      <view class="searchInputContainer">
+        <image class="searchImg" src="{{searchSrc}}"> </image>
+        <input bindinput="bindKeyInput" class="searchInput" focus value="{{inputValue}}" placeholder="搜索" placeholder-class="placeText"
+          confirm-type="search" bindconfirm="confirmInput" />
+        <image hidden="{{!inputValue}}" bindtap="tapSearchDelete" class="searchDelete" src="{{deleteButtonSrc}}"> </image>
+      </view>
+      <view bindtap="tapSearchNote" class="searchNoteButton">取消</view>
+    </view>
+    <block wx:if="{{searchResult.length > 0}}">
+      <block wx:for="{{searchResult}}" wx:key="">
+        <view class="newsBox" bindtap="enterNewsDetail" id="{{index}}">
+          <view class="title">
+            <view class="titleText">
+              <block wx:for="{{item.splitTitle}}" wx:for-index="idx" wx:key="" wx:for-item="itemName">
+                <view wx:if="{{item.isRed[idx]}}" class="inputTitle"> {{itemName}} </view>
+                <view wx:else> {{itemName}} </view>
+              </block>
+            </view>
+            <view class="sourceText">来源：{{item.source}}</view>
+          </view>
+          <view class="dateText">{{item.date}}</view>
+        </view>
+      </block>
+    </block>
+    <block wx:if="{{searchResult.length === 0}}">
+      <view>暂无搜索内容</view>
+    </block>
+    <block wx:else>
+      <view class="searchTitle">
+        <view class="titleText"> 历史搜索 </view>
+        <image bindtap="clearHistory" data-type="news" class="titleImg" src="{{deleteSrc}}"> </image>
+      </view>
+      <view class="searchSuggestion">
+        <view class="suggestionItem" wx:for="{{searchHistory.news}}" id="{{index}}" data-entry="history" wx:key="" bindtap="searchContent">
+          <view class="suggestionText"> {{item}} </view>
+        </view>
+      </view>
+    </block>
+  </block>
+</view>

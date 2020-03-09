@@ -1,0 +1,185 @@
+<!--detailCharts.wxml-->
+<view class="detailChartsContainer">
+  <view class="detailChartsTitleContainer">
+    <text class="detailChartsTitle">{{title}}</text>
+    <image bindtap="tapCollect" class="collectImg" src="{{collectImgSrc}}"> </image>
+  </view>
+  
+  <block wx:for="{{dataList}}" wx:for-index="i" wx:for-item="graphItem" wx:key="">
+    <!-- 图片标题-->
+    <view class="graphTitle" wx:if="{{!graphItem.chartHidden}}">{{graphItem.main}}</view>
+    <view class="dataSource" wx:if="{{!graphItem.chartHidden&&graphItem.type==='table'}}">数据来源：{{graphItem.dataSource}}</view>
+     <!-- 数据来源 -->
+    <!-- 如果 kicker 数量为1个 -->
+    <block wx:if="{{graphItem.timeNumber===1}}">
+      <!-- 兼容性处理，ios平台设备选择器可以有初始值 -->
+      <block wx:if="{{os==='iOS'}}">
+        <view class="onePickerWithButton">
+          <picker disabled="true" start="{{graphItem.dateRange[0]}}" end="{{graphItem.dateRange[1]}}" mode="date" id="{{i}}_0" fields="{{graphItem.fields}}" bindchange="bindDateChange" value="{{pickerList[i][0]}}">
+            <view class="onePicker" id="{{i}}_0">
+              <text class="pickerReminder">时间选择</text>
+              <text class="pickerValue">{{pickerList[i][0]}}</text>
+              <image src="{{imgArrowDown}}" class="imgArrowDown"></image>
+            </view>
+          </picker>
+          <view class="onePickerButton" id="{{i}}" bindtap="update">查询</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="onePickerWithButton">
+          <picker disabled="true" start="{{graphItem.dateRange[0]}}" end="{{graphItem.dateRange[1]}}" mode="date" id="{{i}}_0" fields="{{graphItem.fields}}" bindchange="bindDateChange">
+            <view class="onePicker" id="{{i}}_0">
+              <text class="pickerReminder">时间选择</text>
+              <text class="pickerValue">{{pickerList[i][0]}}</text>
+              <image src="{{imgArrowDown}}" class="imgArrowDown"></image>
+            </view>
+          </picker>
+          <view class="onePickerButton" id="{{i}}" bindtap="update">查询</view>
+        </view>
+      </block>
+    </block>
+    <!-- 如果 kicker 数量为2个 -->
+    <block wx:elif="{{graphItem.timeNumber===2}}">
+      <block wx:if="{{os==='iOS'}}">
+        <view class="twoPickerWithButton">
+          <view class="twoPicker">
+            <!-- <picker disabled="true" start="{{graphItem.dateRange[0]}}" end="{{graphItem.dateRange[1]}}" mode="date" id="{{i}}_0" fields="{{graphItem.fields}}" bindchange="bindDateChange" value="{{pickerList[i][0]}}">
+              <view class="pickerUp" id="{{i}}_0">
+                <text class="pickerReminder">111开始时间</text>
+                <text class="pickerValue">{{pickerList[i][0]}}</text>
+                <image src="{{imgArrowDown}}" class="imgArrowDown"></image>
+              </view>
+            </picker>
+            <picker disabled="true" start="{{graphItem.dateRange[0]}}" end="{{graphItem.dateRange[1]}}" mode="date" id="{{i}}_1" fields="{{graphItem.fields}}" bindchange="bindDateChange" value="{{pickerList[i][1]}}">
+              <view class="pickerDown" id="{{i}}_1">
+                <text class="pickerReminder">结束时间</text>
+                <text class="pickerValue">{{pickerList[i][1]}}</text>
+                <image src="{{imgArrowDown}}" class="imgArrowDown"></image>
+              </view>
+            </picker> -->
+              <picker disabled="true" start="{{graphItem.dateRange[0]}}" end="{{graphItem.dateRange[1]}}" mode="date" id="{{i}}_0" fields="{{graphItem.fields}}" bindchange="bindDateChange" value="{{pickerList[i][0]}}">
+                <view class="pickerUp" id="{{i}}_0">
+                  <!-- <text class="pickerReminder">111开始时间</text> -->
+                  <text class="pickerValue">{{pickerList[i][0]}}</text>
+                  <image src="{{imgArrowDown}}" class="imgArrowDown"></image>
+                </view>
+              </picker>
+              <view class="pickConnect">至</view>
+              <picker disabled="true" start="{{graphItem.dateRange[0]}}" end="{{graphItem.dateRange[1]}}" mode="date" id="{{i}}_1" fields="{{graphItem.fields}}" bindchange="bindDateChange" value="{{pickerList[i][1]}}">
+                <view class="pickerDown" id="{{i}}_1">
+                  <!-- <text class="pickerReminder">结束时间</text> -->
+                  <text class="pickerValue">{{pickerList[i][1]}}</text>
+                  <image src="{{imgArrowDown}}" class="imgArrowDown"></image>
+                </view>
+              </picker>
+          </view>
+          <view class="twoPickerButton" id="{{i}}" bindtap="update">查询</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="twoPickerWithButton">
+          <view class="twoPicker">
+            <picker disabled="true" start="{{graphItem.dateRange[0]}}" end="{{graphItem.dateRange[1]}}" mode="date" id="{{i}}_0" fields="{{graphItem.fields}}" bindchange="bindDateChange">
+              <view class="pickerUp" id="{{i}}_0">
+                <text class="pickerReminder">开始时间</text>
+                <text class="pickerValue">{{pickerList[i][0]}}</text>
+                <image src="{{imgArrowDown}}" class="imgArrowDown"></image>
+              </view>
+            </picker>
+            <picker disabled="true" start="{{graphItem.dateRange[0]}}" end="{{graphItem.dateRange[1]}}" mode="date" id="{{i}}_1" fields="{{graphItem.fields}}" bindchange="bindDateChange">
+              <view class="pickerDown" id="{{i}}_1">
+                <text class="pickerReminder">结束时间</text>
+                <text class="pickerValue">{{pickerList[i][1]}}</text>
+                <image src="{{imgArrowDown}}" class="imgArrowDown"></image>
+              </view>
+            </picker>
+          </view>
+          <view class="twoPickerButton" id="{{i}}" bindtap="update">查询</view>
+        </view>
+      </block>
+    </block>
+    <!-- 画布 -->
+    <block wx:if="{{graphItem.type!=='table'&&!graphItem.chartHidden}}">
+      <!-- 根据图表是否可以滚动，设置不同的 canvas -->
+      <!-- <block wx:if="{{graphItem.scroll}}">
+          <canvas canvas-id="{{i}}" id="{{i}}" class="canvas" disable-scroll="{{true}}" bindtouchstart="scrollCanvasStart" bindtouchmove="scrollCanvas" bindtouchend="scrollCanvasEnd"/>
+      </block>
+      <block wx:else>
+          <canvas canvas-id="{{i}}" id="{{i}}" class="canvas"/>
+      </block> -->
+      <view class="fn2">
+        <ff-canvas id="{{i}}" canvas-id="{{i}}" opts="{{ opts }}"></ff-canvas>
+      </view>
+    </block>
+    <block wx:if="{{graphItem.type==='table'}}">
+      <!-- 简单表格 -->
+      <view class="simpleTable">
+        <!-- first column -->
+        <view class="colCategories">
+          <view class="dataItem">
+            <text class="text" style="font-size: 30rpx;color: #8E9091;">{{graphItem.firstColumnTitle||''}}</text>
+          </view>
+          <block wx:for="{{graphItem.data.categories}}" wx:for-item="category" wx:for-index="index" wx:key="">
+            <view class="dataItem" style="background-color:{{index%2==1?'#FFFFFF':'#DDDDDD'}};height: {{category.heightNumber*43}}rpx;">
+              <text class="text">{{category.value}}</text>
+            </view>
+          </block>
+        </view>
+        <scroll-view scroll-x="true" class="scrollTable">
+          <!-- series column -->
+          <view class="colDataGroup">
+          <block class="colDataGroup" wx:for="{{graphItem.data.series}}" wx:for-item="dataCol" wx:for-index="colID" wx:key="">
+            <view class="colData">
+              <view class="dataItem">
+                <text class="text" style="font-size: 30rpx;color: #8E9091;width: {{dataCol.width}}rpx;">{{dataCol.name}}</text>
+              </view>
+              <block wx:for="{{dataCol.data}}" wx:for-item="dataContent" wx:for-index="idx" wx:key="">
+                <view class="dataItem" style="background-color:{{idx%2==1?'#FFFFFF':'#DDDDDD'}};height: {{graphItem.data.categories[idx].heightNumber*43}}rpx;">
+                  <view class="text" style="width: {{dataCol.width}}rpx;">{{dataContent === null? '-':dataContent}}</view>
+                </view>
+              </block>
+            </view>
+          </block>
+          </view>
+        </scroll-view>
+      </view>
+    </block>
+    <!-- <block wx:if="{{graphItem.type==='table'}}">
+      <scroll-view scroll-x="true" class="simpleTable">
+        <view class="rowCategories">
+          <block wx:for="{{graphItem.table.categories}}" wx:for-item="category" wx:key="">
+            <view class="dataItem">
+              <text class="text">{{category}}</text>
+            </view>
+          </block>
+        </view>
+        <block wx:for="{{graphItem.table.data}}" wx:for-item="dataRow" wx:key="">
+          <view class="rowData">
+            <block wx:for="{{dataRow}}" wx:for-item="data" wx:for-index="idx" wx:key="">
+              <view class="dataItem">
+                <block wx:if="{{idx===0}}">
+                  <text class="text" style="color:{{tableFirstColumnColor}};">{{data}}</text>
+                </block>
+                <block wx:else>
+                  <text class="text" style="color:{{tableDataColor[(idx-1)%tableDataColor.length]}};">{{data}}</text>
+                </block>
+              </view>
+            </block>
+          </view>
+        </block>
+      </scroll-view>
+    </block> -->
+  </block>
+  <!-- fn2图表测试 -->
+  <!-- <view class="fn2">
+    <ff-canvas id="column-dom" canvas-id="column" opts="{{ opts }}"></ff-canvas>
+  </view> -->
+  <block wx:if="{{textContent}}">
+    <view class="graphTitle">{{textContent.title}}</view>
+    <view class="textContent">
+      <block wx:for="{{textContent.content}}" wx:for-item="item" wx:key="">
+        <view class="textParagraph">{{item}}</view>
+      </block>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,155 @@
+
+
+<!-- 外部container -->
+<view class="container">
+	<!-- 交通动态事件版块 -->
+	<view class="dynamicBackground">
+			<view class="trafficDynamic" style="background-image: url({{policyBackgroundSrc}})">
+				<swiper
+				indicator-dots="{{indicatorDots}}"
+				autoplay="{{false}}"
+				interval="{{2000}}"
+				duration="{{500}}"
+				class="swiper"
+				next-margin="30rpx"
+				circular="true"
+			>
+				<block wx:for="{{categories}}" wx:for-item="item" wx:key="item">
+					<swiper-item>
+						<image src="{{item.imgSrc}}" class="slide-image"  bindtap="enterPolicyPage" data-type="{{item.chinese}}"/>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+	</view>
+	<!-- 数据指标、速度排行等数据版块 -->
+	<view class="dataPartBackground" >
+		<view class="dataPartContainer">
+			<view class="title">
+				<!-- <image class="logo" src="{{logoSrc}}"></image> -->
+				<text class="titleText">{{partyTitle}}</text>
+			</view>
+			<!-- 数据指标版块 -->
+			<view class="analysisContainer" style="background-image: url({{indexBackgroundSrc}})">
+				 <!--搜索框-->
+				 <view class="searchContainer" bindtap="tapSearch">
+						<view class="searchBox">
+							<image class="searchImage" src="{{searchImageSrc}}"> </image> 
+							<text>指标搜索</text>
+						</view>
+					</view>
+					<!--8个跳转图标-->
+					<view class="buttonContainer">
+						<!--第1排-->
+						<view class="buttonFirstRow">
+							<block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" wx:key="name">
+								<block wx:if="{{idx < 4}}">
+									<view id="{{idx}}" bindtap="tapIndicator" class="buttonBox" >
+										<image class="buttonIcon" src="{{buttonSrc[idx]}}"> </image>
+										<view>{{item.name}}</view>
+									</view>
+								</block>
+							</block>
+						</view>
+						<!--第2排-->
+						<view class="buttonSecondRow">
+							<block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" wx:key="name">
+								<block wx:if="{{idx >= 4 && idx < 8}}">
+									<view id="{{idx}}" bindtap="tapIndicator" class="buttonBox">
+										<image class="buttonIcon" src="{{buttonSrc[idx]}}"> </image>
+										<view>{{item.name}}</view>
+									</view>
+								</block>
+							</block>
+						</view>
+						<!-- 第三排 -->
+						<view class="buttonThirdRow">
+							<block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" wx:key="name">
+								<block wx:if="{{idx >= 8}}">
+									<view id="{{idx}}" bindtap="tapIndicator" class="buttonBox">
+										<image class="buttonIcon" src="{{buttonSrc[idx]}}"> </image>
+										<view>{{item.name}}</view>
+									</view>
+								</block>
+							</block>
+						</view>
+					</view>
+					<image src="{{downArrow}}" class="down-arrow"/>
+			</view>
+			<!-- 路网指数版块 -->
+			<view class="trafficIndexContainer"  bindtap="enterPage" id="{{0}}">
+					<view class="trafficIndexUpPart" style="background-image:url({{trafficIndexBackgroundSrc}})">
+							<view class="indexTitle">
+								<text>全路网道路车速</text>
+								<text>中心城区车速</text>
+							</view>
+							<view class="indexData">
+								<text>{{viewDataTrafficIndex.speed}}<text>km/h</text></text>
+								<text>{{regionIndexList[0].average}}<text>km/h</text></text>
+							</view>
+					</view>
+					<view class="trafficIndexDownPart">
+						<view class="firstAreaIndex">
+							<text class="indexArea">朝阳车速</text>
+							<view class="indexData">{{regionIndexList[1].average}}</view>
+							<image src="{{trafficIndexIcons[0]}}" class="indexIcons" />
+						</view>
+						<view class="secondAreaIndex">
+							<text class="indexArea">宽城车速</text>
+							<view class="indexData" style="text-align: center">{{regionIndexList[2].average}}</view>
+							<image src="{{trafficIndexIcons[1]}}" class="indexIcons" />
+						</view>
+						<view class="thirdAreaIndex">
+							<text class="indexArea">九台车速</text>
+							<view class="indexData" style="text-align: right">{{regionIndexList[3].average}}</view>
+							<image src="{{trafficIndexIcons[2]}}" class="indexIcons" />
+						</view>
+					</view>
+			</view>
+			<!-- 速度排行版块 -->
+			<view class="frequentJamContainer">
+				<view class="frequentJamUpPart" style="background-image:url({{frequentJamBackUrl}})">
+					<text class="speedText">速度排行</text>
+				</view>
+				<view class="frequentJamDownPart">
+					<block wx:for="{{topJamArea}}" wx:for-index="i" wx:for-item="item" wx:key="name">
+						<block wx:if="{{i<=6}}" >
+							<view class="speedLine">
+									<view class="cirlce">{{i+1}}</view>
+									<view class="area">{{item.name}}</view>
+									<progress style="width:250rpx" active="{{true}}" percent="{{(item.speed/45)*100}}" border-radius="5rpx" stroke-width="30rpx" activeColor="#0F7DBE" backgroundColor="#E9E9E9" />
+									<view class="speed">{{item.speed}}</view>
+									<view class="unit">km/h</view>
+								</view>
+							</block>
+					</block>
+				</view>
+			</view>
+			<!-- 轨道客流版块 -->
+		<view class="trailPassengerFlowContainer">
+			<view class="trailPassengerFlowUpPart" style="background-image:url({{trailPassengerFlowBackgroundSrc}})">
+				<text class="flowText">轨道客流</text>
+			</view>
+			<view class="trailPassengerFlowDownPart">
+				<view class="trailTitle">
+					<view class="trailName">轨道名</view>
+					<view class="trailLength">长度</view>
+					<view class="trailFlow">日均客流量</view>
+				</view>
+				<view class="flowDataList">
+					<block wx:for="{{trailPassengerFlowData}}" wx:for-index="i" wx:for-item="item" wx:key="name">
+						<view class="flowDataLine">
+								<image src="{{trailIcon}}" class="trailIcon" />
+								<view class="trailNameText">{{item.name}}</view>
+								<view class="trailLengthData">{{item.length}}</view>
+								<view class="trailLengthUnit">km</view>
+								<view class="flowData">{{item.flow}}</view>
+								<view class="flowUnit">万辆/日</view>
+						</view>
+					</block>
+				</view>
+			</view>
+		</view>
+		</view>
+	</view>
+</view>

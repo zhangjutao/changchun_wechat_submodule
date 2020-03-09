@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.wxml": "html",
+    "*.wxss": "css"
+  },
+  "less.compile": {
+    "compress": true,
+    "outExt": ".wxss"
+  },
+  "css.validate": false
+}

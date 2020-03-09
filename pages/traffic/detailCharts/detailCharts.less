@@ -1,0 +1,297 @@
+.detailChartsContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  align-items: center;
+  .textContent {
+    padding: 30rpx;
+    padding-bottom: 0rpx;
+    font-size: 28rpx;
+    .textParagraph {
+      padding-bottom: 20rpx;
+    }
+  }
+  .detailChartsTitleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    // margin-left: 10rpx;
+    // margin-right: 10rpx;
+    margin-top:15rpx;
+    margin-bottom: 15rpx;
+    .detailChartsTitle {
+      // width: 670rpx;
+      width:638rpx;
+      //修改jx
+      font-size: 35rpx;
+      padding-left: 29rpx;
+      color: #000000;
+      // letter-spacing: -1.36rpx;
+    }
+    .collectImg {
+      width: 60rpx;
+      height: 57rpx;
+      padding-right: 29rpx;
+      // margin-right: 25rpx;
+    }
+  }
+  .graphTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 720rpx;
+    height: 88rpx;
+    padding-left: 30rpx;
+    background: #F1F2F7;
+    //修改jx
+    // font-size: 30rpx;
+    font-size: 28rpx;
+    color: #222328;
+  }
+  .dataSource{
+    padding-left: 30rpx;
+    font-size: 22rpx;
+    color:#aeaeae;
+    background: #F1F2F7;
+    width:720rpx;
+    margin-top: -5rpx;
+    padding-bottom: 10px;
+  }
+  .onePickerWithButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 25rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    padding-bottom:10rpx;
+    width: 690rpx;
+    .onePicker{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 532rpx;
+      height: 65rpx;
+      background: rgba(0,0,0,0.00);
+      border: 2rpx solid rgba(0,0,0,0.30);
+      border-radius: 100rpx;
+      .pickerReminder{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-left: 16rpx;
+        width: 192rpx;
+        //修改jx
+        font-size: 27rpx;
+        color: #000000;
+      }
+      .pickerValue{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 249.5rpx;
+        height: 44rpx;
+        //修改jx
+        font-size: 28rpx;
+        color: #000000;
+        border-right: 2rpx solid #000000;
+      }
+      .imgArrowDown{
+        margin-left: 12rpx;
+        height: 16rpx;
+        width: 32rpx;
+      }
+    }
+    .onePickerButton{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      width: 140rpx;
+      height: 65rpx;
+      background-image: linear-gradient(90deg, #FF6F5D 0%, #FF3C30 100%);
+      border-radius: 20rpx;
+      //修改jx
+      font-size: 28rpx;
+      color: #FFFFFF;
+    }
+  }
+  .twoPickerWithButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 25rpx;
+    padding-bottom:10rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    width: 690rpx;
+    .twoPicker{
+      display: flex;
+      //修改jx
+      flex-direction: row;
+      // height: 145rpx;
+      justify-content: space-between;
+      .pickConnect{
+        font-size: 28rpx;
+        color:#666666;
+        height:28rpx;
+        width:28rpx;
+        padding-top: 10rpx;
+        padding-left: 5rpx;
+        padding-right: 5rpx;
+        text-align: center;
+      }
+      .pickerUp, .pickerDown{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        //修改jx
+        // width: 532rpx;
+        // height: 65rpx;
+        width:255rpx;
+        height:60rpx;
+        background: rgba(0,0,0,0.00);
+        border: 2rpx solid rgba(0,0,0,0.30);
+        border-radius: 100rpx;
+        .pickerReminder{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          margin-left: 16rpx;
+          width: 192rpx;
+          font-size: 30rpx;
+          color: #000000;
+        }
+        .pickerValue{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          // width: 249.5rpx;
+          width: 190rpx;
+          // height: 44rpx;
+          height: 28rpx;
+          //修改jx
+          // font-size: 30rpx;
+          font-size: 27rpx;
+          // color: #000000;
+          color: #888888;
+          // border-right: 2rpx solid #000000;
+        }
+        .imgArrowDown{
+          margin-left: 12rpx;
+          height: 16rpx;
+          width: 32rpx;
+        }
+      }
+    }
+    .twoPickerButton{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      //修改jx
+      // width: 140rpx;
+      // height: 140rpx;
+      width: 120rpx;
+      height: 60rpx;
+      background-image: linear-gradient(90deg, #FF6F5D 0%, #FF3C30 100%);
+      border-radius: 10rpx;
+      // font-size: 36rpx;
+      font-size: 28rpx;
+      color: #FFFFFF;
+    }
+  }
+  .canvas {
+    width: 722rpx;
+    height: 419rpx;
+    border-radius: 4rpx;
+    box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(0,0,0,0.16);
+    margin-top: 14rpx;
+    margin-bottom: 40rpx;
+  }
+  .simpleTable{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: 14rpx;
+    margin-bottom: 40rpx;
+    padding: 16rpx 16rpx 16rpx 16rpx;
+    width: 690rpx;
+    // width: 730rpx;
+    box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(0,0,0,0.16);
+    border-radius: 4rpx;
+    .colCategories{
+      flex-direction: column;
+      width: 250rpx;
+      .dataItem{
+        // height: 68rpx;
+        // width: 120rpx;
+        padding-right: 20rpx;
+        color: #172434;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-left: 5rpx;
+        padding-right: 5rpx;
+        .text{
+          display: block;
+          white-space:pre-line;
+          //修改jx
+          font-size: 27rpx;
+        }
+      }
+    }
+    .scrollTable{
+      white-space: nowrap;
+      
+      width: 480rpx;
+      .colDataGroup{
+        display: flex;
+        flex-wrap: nowrap;
+        width: 480rpx;
+        flex-direction: row;
+        align-items: flex-end;
+        .colData{
+          display: flex;
+          flex-direction: column;
+          // justify-content: flex-end;
+          // width: 100%;
+          // display: inline-block;
+          .dataItem{
+            padding-right: 20rpx;
+            color: #172434;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align:center;
+            .text{
+              display: block;
+              white-space:pre-line;
+              //修改jx
+              font-size: 27rpx;
+            }
+          }
+        }
+      }
+    }
+  }
+  .fn2{
+    height:560rpx;
+    padding: 16rpx 16rpx 16rpx 16rpx;
+    width: 690rpx;
+    // width: 730rpx;
+    box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(0,0,0,0.16);
+    border-radius: 4rpx;
+    margin-top: 14rpx;
+    margin-bottom: 40rpx;
+  }
+}

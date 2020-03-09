@@ -1,0 +1,7 @@
+typings
+node_modules
+dist
+distTemp
+build
+pages/**/*.wxss
+yarn-error.log

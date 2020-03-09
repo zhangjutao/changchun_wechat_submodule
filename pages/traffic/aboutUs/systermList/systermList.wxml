@@ -1,0 +1,5 @@
+<view class="container">
+  <block wx:for="{{systermList}}" wx:for-index="idx" wx:for-item="item" wx:key="name">
+    <view class="systermLogo" style="background-image:url({{item.src}})" id="{{idx}}" bindtap="enterDetailPage"/>
+  </block>
+</view>

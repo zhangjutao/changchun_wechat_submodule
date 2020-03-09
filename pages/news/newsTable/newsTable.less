@@ -1,0 +1,203 @@
+// .newsContainer {
+//   display: flex;
+//   flex-direction: column;
+//   background: #FFFFFF;
+//   .barContainer {
+//     position: fixed;
+//     top: 0rpx;
+//     left: 0rpx;
+//     width: 750rpx;
+//     height: 89rpx;
+//     border-bottom: 1rpx solid #C9C9C9;
+//     background: rgba(246,246,246,1);
+//     // box-shadow: 0 1rpx 0 0 rgba(0,0,0,0.30);
+//     .barBox {
+//       display: flex;
+//       flex-direction: row;
+//       width: 584rpx;
+//       height: 58rpx;
+//       margin-left: 84rpx;
+//       margin-top: 16rpx;
+//       font-size: 26rpx;
+//       letter-spacing: -0.16rpx;
+//       border: 1rpx solid #FF8F49;
+//       border-radius: 10rpx;
+//       .newest {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         height: 58rpx;
+//         width: 194rpx;
+//         border-top-left-radius: 9rpx;
+//         border-bottom-left-radius: 9rpx;
+//       }
+//       .collected {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         height: 58rpx;
+//         width: 194rpx;
+//         border-left: 1rpx solid #FF8F49;
+//         border-right: 1rpx solid #FF8F49;
+//       }
+//       .comments {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         height: 58rpx;
+//         width: 194rpx;
+//         border-top-right-radius: 9rpx;
+//         border-bottom-right-radius: 9rpx;
+//       }
+//     }
+//   }
+//   .scrollContainer {
+//     display: flex;
+//     flex-direction: column;
+//     // margin-top: 89rpx;
+//     width: 750rpx;
+//     .textMore {
+//       margin-top: 50rpx;
+//       margin-bottom: 30rpx;
+//       font-size: 27rpx;
+//       color: #7D7D7D;
+//       letter-spacing: -0.87rpx;
+//       text-align: center;
+//     }
+//     .newsBox{
+//       display: flex;
+//       flex-direction: row;
+//       width: 690rpx;
+//       // height: 137rpx;
+//       margin-top: 20rpx;
+//       margin-left: 30rpx;
+//       border: 1rpx solid;
+//       border-radius: 8rpx;
+//       .collectImg {
+//         width: 60rpx;
+//         height: 57.2rpx;
+//         margin-top: 33rpx;
+//         margin-left: 35rpx;
+//       }
+//       .title {
+//         display: flex;
+//         flex-direction: column;
+//         width: 380rpx;
+//         // height: 81rpx;
+//         margin-top: 28.4rpx;
+//         margin-left: 42.4rpx;
+//         .titleText {
+//           width: 380rpx;
+//           // height: 32rpx;
+//           font-size: 30rpx;
+//           color: #575757;
+//           line-height: 32rpx;
+//         }
+//         .sourceText {
+//           // height: 33rpx;
+//           margin-top: 14rpx;
+//           margin-bottom: 27.6rpx;
+//           font-size: 24rpx;
+//           color: #7D7D7D;
+//         }
+//       }
+//       .dateText {
+//         margin-left: 20rpx;
+//         //修改jx
+//         margin-top: 24.2rpx;
+//         font-size: 24rpx;
+//         color: #7D7D7D;
+//       }
+//     }
+//     .newsCommentBox {
+//       display: flex;
+//       flex-direction: column;
+//       width: 690rpx;
+//       // height: 243.4rpx;
+//       margin-top: 20rpx;
+//       margin-left: 30rpx;
+//       border: 1rpx solid #FF8F49;
+//       border-radius: 8rpx;
+//       .titleContainer {
+//         display: flex;
+//         flex-direction: row;
+//         width: 690rpx;
+//         // height: 158rpx;
+//         .collectImg {
+//           width: 60rpx;
+//           height: 57.2rpx;
+//           margin-top: 33rpx;
+//           margin-left: 35rpx;
+//         }
+//         .title {
+//           display: flex;
+//           flex-direction: column;
+//           width: 380rpx;
+//           // height: 111rpx;
+//           margin-top: 28.4rpx;
+//           margin-left: 42.4rpx;
+//           .titleText {
+//             width: 380rpx;
+//             // height: 32rpx;
+//             font-size: 30rpx;
+//             color: #575757;
+//             line-height: 32rpx;
+//           }
+//           .sourceText {
+//             // height: 33rpx;
+//             margin-top: 14rpx;
+//             font-size: 24rpx;
+//             color: #7D7D7D;
+//           }
+//         }
+//         .dateText {
+//           margin-left: 20rpx;
+//           //修改jx
+//           margin-top: 24.2rpx;
+//           font-size: 24rpx;
+//           color: #7D7D7D;
+//         }
+//       }
+//       .abstractText {
+//         width: 506rpx;
+//         // height: 64rpx;
+//         margin-left: 137.4rpx;
+//         margin-top: 14rpx;
+//         margin-bottom: 20rpx;
+//         font-size: 28rpx;
+//         color: #383838;
+//         line-height: 35rpx;
+//       }
+//     }
+//   }
+// }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .line-outer{
+    display: flex;
+    align-items: center;
+    width:679rpx;
+    padding:25rpx 18rpx;
+    margin-top: 15rpx;
+    border-radius:8rpx;
+    box-shadow:0 2rpx 6rpx 0 rgba(0,0,0,0.22);
+    .thumbnail{
+      height: 100rpx;
+      width: 100rpx;
+      border-radius: 8rpx;
+    }
+    .brief{
+      margin-left: 20rpx;
+      width: 420rpx;
+      font-size: 34rpx;
+      color: #101010;
+    }
+    .date{
+      font-size: 24rpx;
+      color: #B4B4B4;
+    }
+  }
+}

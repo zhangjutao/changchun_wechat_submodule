@@ -1,0 +1,96 @@
+.mapConatiner{
+  display: flex;
+  flex-direction: column;
+  .coverMapIcon{
+    position: absolute;
+    right: 18rpx;
+    bottom: 18rpx;
+    height: 178rpx;
+    width: 178rpx;
+    background-size: contain;
+  }
+  .rankTable{
+    // display: flex;
+    // flex-direction: column;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 678rpx;
+    left: 16rpx;
+    border-radius: 13rpx;
+    // border: 1rpx solid #CCCCCC;
+    box-shadow: 0rpx 4rpx 3rpx 0rpx;
+    padding-top: 20rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    .firstRow{
+      display: flex;
+      flex-direction: row;
+      
+      text-align: center;
+      
+      // border-bottom: 1rpx solid #CCCCCC;
+      .rankText{
+        width: 100rpx;
+        color: black;
+        text-align: center;
+        font-size: 35rpx;
+        height: 61.5rpx;
+        border: 1rpx solid #cccccc;
+        padding-top: 17rpx;
+      }
+      .regionText{
+        width: 390rpx;
+        color: black;
+        font-size: 35rpx;
+        height: 61.5rpx;
+        padding-left: 10rpx;
+        border: 1rpx solid #cccccc;
+        padding-top: 17rpx;
+      }
+      .fluxText{
+        width: 200rpx;
+        color: black;
+        font-size: 35rpx;
+        height: 61.5rpx;
+        border: 1rpx solid #cccccc;
+        padding-top: 17rpx;
+      }
+    }
+    .dataRow{
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      // padding-top: 20rpx;
+      // border-bottom: 1rpx solid #CCCCCC;
+      .rankText{
+        width: 100rpx;
+        color: #212121;
+        text-align: center;
+        justify-items: center;
+        font-size: 30rpx;
+        height: 45rpx;
+        border: 1rpx solid #cccccc;
+        padding-top: 15rpx;
+      }
+      .regionText{
+        width: 390rpx;
+        color: #212121;
+        justify-items: center;
+        font-size: 30rpx;
+        height: 45rpx;
+        padding-left: 10rpx;
+        border: 1rpx solid #cccccc;
+        padding-top: 15rpx;
+      }
+      .fluxText{
+        width: 200rpx;
+        color: #212121;
+        justify-items: center;
+        font-size: 30rpx;
+        height: 45rpx;
+        border: 1rpx solid #cccccc;
+        padding-top: 15rpx;
+      }
+    }
+  }
+}

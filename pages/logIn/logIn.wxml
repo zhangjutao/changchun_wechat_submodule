@@ -1,0 +1,64 @@
+<view class="logInContainer">
+  <button 
+    class="getUserInfo"
+    wx:if="{{canIUse}}" 
+    open-type="getUserInfo" 
+    bindgetuserinfo="bindGetUserInfo"
+    hidden="{{hideAuthButton}}"
+    >
+    授权登录
+  </button>
+  <view wx:else>请升级微信版本</view>
+</view>
+<view class="logInContainer">
+ <view 
+    class="updatingButton"
+    open-type="getUserInfo" 
+    hidden="{{hideUpdateButton}}"
+    >
+    数据更新中,暂时无法使用
+</view>
+</view>
+
+<view class="innerCircle0" style="height:{{scaleRatio*circleInnerSize}}rpx;width:{{scaleRatio*circleInnerSize}}rpx;top:{{centerTop-0.5*scaleRatio*circleInnerSize}}rpx;left:{{375-0.5*scaleRatio*circleInnerSize}}rpx;">
+</view>
+
+<view class="innerCircle1" style="height:{{scaleRatio*circleInnerSize}}rpx;width:{{scaleRatio*circleInnerSize}}rpx;top:{{centerTop-0.5*scaleRatio*circleInnerSize}}rpx;left:{{375-0.5*scaleRatio*circleInnerSize}}rpx;">
+</view>
+
+<view class="innerCircle2" style="height:{{scaleRatio*circleInnerSize}}rpx;width:{{scaleRatio*circleInnerSize}}rpx;top:{{centerTop-0.5*scaleRatio*circleInnerSize}}rpx;left:{{375-0.5*scaleRatio*circleInnerSize}}rpx;">
+</view>
+
+<image class="logoImageStyle" style="height:{{scaleRatio*logoImageHeight}}rpx;width:{{scaleRatio*logoImageWidth}}rpx;top:{{centerTop-0.5*scaleRatio*logoImageHeight}}rpx;left:{{375-0.5*scaleRatio*logoImageWidth}}rpx;" src="{{logoImage}}"></image>
+
+<image class="sloganImageStyle" style="width:{{sloganWidth}}rpx;height:{{sloganHeight}}rpx;top:{{centerTop+0.5*scaleRatio*circleOutterSize+50}}rpx;left:{{375-0.5*sloganWidth}}rpx;" src="{{sloganImage}}" wx:if="{{!showPasswordDots}}"></image>
+
+<view class="passwordDots" style="top:{{windowHeight-704-intervalSpace}}rpx" wx:if="{{showPasswordDots}}">
+  <block wx:for="{{dotsStyle}}" wx:for-index="i" wx:key="">
+    <view class="dot" animation="{{animationShakeDots}}" style="{{dotsStyle[i]}}">
+    </view>
+  </block>
+</view>
+
+<!-- 自定义键盘部分 -->
+<view class="keyBoard" style="top:{{windowHeight-624}}rpx;" wx:if="{{showPasswordDots}}">
+    <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}}" wx:for-item="i" wx:key="">
+      <view class="inputButton" hover hover-start-time="0" hover-stay-time="50" hover-class="inputButtonHover" id="{{i}}" bindtouchstart="buttonTouchStart">
+        <block wx:if="{{i===10}}">
+          <text>清除</text>
+        </block>
+        <block wx:elif="{{i===11}}">
+          <text>0</text>
+        </block>
+        <block wx:elif="{{i===12}}">
+           <image src="{{deleteImage}}" style="height:46rpx;width:46rpx;"/>
+        </block>
+        <block wx:else>
+          <text>{{i}}</text>
+        </block>
+      </view>
+  </view>
+</view>
+
+<!-- 加载中动画 -->
+<image wx:if="{{!showPasswordDots}}" class="loadingImage" style="top:{{centerTop+100+0.5*scaleRatio*circleOutterSize+sloganHeight}}rpx;" src="{{loadingImage}}" animation="{{animationLoading}}" hidden="{{!showLoading}}"></image>

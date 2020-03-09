@@ -1,0 +1,221 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  .newsBox{
+    display: flex;
+    flex-direction: row;
+    width: 690rpx;
+    // height: 137rpx;
+    margin-top: 10rpx;
+    margin-bottom: 5rpx;
+    margin-left: 30rpx;
+    background: #FFFFFF;
+    box-shadow: 0 2rpx 23rpx 0 #E4E6E9;
+    border-radius: 6rpx;
+    .collectImg {
+      width: 60rpx;
+      height: 57.2rpx;
+      margin-top: 33rpx;
+      margin-left: 35rpx;
+    }
+    .title {
+      display: flex;
+      flex-direction: column;
+      width: 400rpx;
+      // height: 81rpx;
+      margin-top: 28.4rpx;
+      margin-left: 42.4rpx;
+      .titleText {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 400rpx;
+        // height: 32rpx;
+        //修改jx
+        font-size: 28rpx;
+        color: #575757;
+        //修改jx
+        // line-height: 32rpx;
+        line-height: 38rpx;
+        .inputTitle {
+          color: red;
+        }
+      }
+      .sourceText {
+        // height: 33rpx;
+        margin-top: 14rpx;
+        margin-bottom: 27.6rpx;
+        font-size: 24rpx;
+        color: #7D7D7D;
+      }
+    }
+    .dateText {
+      margin-top: 32.2rpx;
+      margin-left: 70rpx;
+      font-size: 24rpx;
+      color: #7D7D7D;
+    }
+  }
+  .progress-box{
+    display: flex;
+    flex-direction: row;
+    height: 50rpx;
+    width: 750rpx;
+    margin-left: 30rpx;
+    .progress {
+      width: 600rpx;
+    }
+    .progress-cancel{
+      margin-left: 40rpx;
+      margin-top: 10rpx;
+    }
+  }
+  .searchboxContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 750rpx;
+    height: 88rpx;
+    box-shadow: inset 0 -1rpx 0 0 rgba(0,0,0,0.10), inset 0 1rpx 0 0;
+    .searchInputContainer {
+      display: flex;
+      flex-direction: row;
+      //修改jx
+      align-items: center;
+      width: 630rpx;
+      height: 56rpx;
+      margin-left: 16rpx;
+       //修改jx
+      // margin-top: 16rpx;
+      background: #F1F2F7;
+      border-radius: 10rpx;
+      .searchImg {
+        display: flex;
+        margin-left: 20rpx;
+        //修改jx
+        // margin-top: 15rpx;
+        background: #F1F2F7;
+        width: 26rpx;
+        height: 26rpx;
+      }
+      .searchInput {
+        width: 528rpx;
+        margin-left: 16rpx;
+        font-size: 28rpx;
+        color: #000000;
+        letter-spacing: -0.45rpx;
+      }
+      .searchDelete {
+        //修改jx
+        // margin-top: 15rpx;
+        width: 30rpx;
+        height: 30rpx;
+        background: #F1F2F7;
+      }
+      .placeText {
+        font-size: 30rpx;
+        color: #8E8E93;
+        letter-spacing: -0.48rpx;
+      }
+    }
+    .searchNoteButton {
+      display: flex;
+      margin-left: 17rpx;
+      //修改jx
+      // margin-top: 29rpx;
+      font-size: 30rpx;
+      color: #555555;
+      letter-spacing: -0.48rpx;
+    }
+  }
+  .searchTitle {
+    display: flex;
+    margin-top: 40rpx;
+    .titleText {
+      display: flex;
+      margin-left: 29rpx;
+      font-size: 30rpx;
+      color: #555555;
+      letter-spacing: -0.48rpx;
+    }
+    .titleImg {
+      width: 30rpx;
+      height: 30rpx;
+      margin-left: 528rpx;
+      margin-top: 1rpx;
+    }
+    .suggestImg {
+      width: 30rpx;
+      height: 22.5rpx;
+      margin-left: 528rpx;
+      margin-top: 4rpx;
+    }
+  }
+  .searchSuggestion {
+    display: flex;
+    flex-wrap: wrap;
+    width: 728rpx;
+    margin: 20rpx 11rpx 20rpx 11rpx; 
+    .suggestionItem {
+      background: #F1F2F7;
+      border-radius: 10rpx;
+      margin: 7rpx 5rpx 7rpx 5rpx;
+      .suggestionText {
+        display: flex;
+        margin: 12rpx 45rpx 12rpx 45rpx;
+        font-size: 30rpx;
+        color: #555555;
+        letter-spacing: -0.48rpx;
+      }
+    }
+  }
+  .notSee {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 41rpx;
+    font-size: 28rpx;
+    color: #999999;
+    letter-spacing: -0.45rpx; 
+  }
+  .matchContainer {
+    display: flex;
+    margin-top: 7rpx;
+    .matchItem {
+      display: flex;
+      flex-direction: row;
+      width: 690rpx;
+      margin: 12rpx 30rpx 12rpx 30rpx;
+      background: #FFFFFF;
+      box-shadow: 0 2rpx 23rpx 0 #E4E6E9;
+      border-radius: 6rpx;
+      .itemText {
+        display: flex;
+        flex-direction: column;
+        margin-left: 44rpx;
+        width: 604.3rpx;
+        .itemTitle {
+          display: flex;
+          flex-direction: row;
+          margin-top: 37rpx;
+          margin-bottom: 37rpx;
+          font-size: 32rpx;
+          // color: #3154E5;
+          letter-spacing: -0.51rpx;
+          .inputTitle {
+            color: red;
+          }
+        }
+      }
+      .matchImg {
+        background: #FFFFFF;
+        width: 14.3rpx;
+        height: 23.5rpx;
+        margin-top: 42rpx;
+      }
+    }
+  }
+} 
+
+
+

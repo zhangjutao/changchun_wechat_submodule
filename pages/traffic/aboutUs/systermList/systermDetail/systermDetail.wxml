@@ -1,0 +1,7 @@
+<view class="container">
+  <view class="systermName">{{systermList[currentSysterm].name}}</view>
+  <view class="systermImg" style="background-image:url({{systermImgs[currentSysterm]}})"/>
+  <view class="systermIntroduction">
+    {{systermDetails[currentSysterm]}}
+  </view>
+</view>

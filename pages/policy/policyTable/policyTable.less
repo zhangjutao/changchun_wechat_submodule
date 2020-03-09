@@ -1,0 +1,71 @@
+.fileContainer {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  align-items: center;
+  .textMore {
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+    //修改jx
+    // font-size: 32rpx;
+    font-size: 27rpx;
+    color: #7D7D7D;
+    letter-spacing: -0.87rpx;
+    text-align: center;
+  }
+  .progress-box{
+    display: flex;
+    flex-direction: row;
+    height: 50rpx;
+    width: 750rpx;
+    margin-left: 30rpx;
+    .progress {
+      width: 600rpx;
+    }
+  }
+  .progress-cancel{
+    margin-left: 40rpx;
+    margin-top: 10rpx;
+  }
+  .fileBox{
+    display: flex;
+    flex-direction: row;
+    width: 679rpx;
+    margin-top: 15rpx;
+    padding: 25rpx 18rpx 25rpx 25rpx;
+    border-radius: 8rpx;
+    box-shadow: 0rpx 2rpx 6rpx 0rpx rgba(0,0,0,0.22);
+    .thumbnail{
+      height: 100rpx;
+      width: 100rpx;
+      border-radius: 8rpx;
+    }
+    .fileText{
+      display: flex;
+      flex-direction: column;
+      width: 555rpx;
+      margin-left: 20rpx;
+      .title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 555rpx;
+        margin-bottom: 14rpx;
+        .titleText {
+          width: 420rpx;
+          font-size: 34rpx;
+          color: #101010;
+        }
+        .dateText {
+          font-size: 24rpx;
+          color: #B4B4B4;
+        }
+      }
+      .desText {
+        font-size: 28rpx;
+        color: #9B9B9B;
+      }
+    }
+  }
+}

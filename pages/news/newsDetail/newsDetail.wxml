@@ -1,0 +1,54 @@
+<!--newsDetail.wxml-->
+<view class="detailContainer">
+  <scroll-view scroll-y class="boxConatiner">
+    <view class="titleContainer">
+      <view class="titleText"> {{news.content.title}} </view>
+      <!-- <image bindtap="tapStar" class="collectImg" src="{{collectImgSrc}}"> </image> -->
+    </view>
+    <view class="sourceConatiner">
+      <view class="sourceText" decode="{{true}}" space="{{true}}"> 来源：{{news.content.source}}\t{{news.content.date}}</view>
+    </view>
+    <view wx:for="{{newsContent}}" wx:key="" class="bodyContainer">
+      <block wx:if="{{item.type==='text'}}">
+        <view class="textContainer"> {{item.content}} </view>
+      </block>
+      <block wx:else>
+        <image class="imageConatiner" src="{{item.content}}" mode="widthFix"> </image>
+      </block>
+    </view>
+    <!-- <view class="collectConatiner">
+      <image class="commentsImg" src="{{commentsSrc}}"> </image>
+      <view class="commentsNum"> {{news.content.commentNum}} </view>
+      <!-- <image class="likeImg" src="{{likeSrc}}"> </image> -->
+      <!-- <view class="likeNum"> {{news.content.collectNum}} </view> -->
+    <!-- </view> --> 
+    <block wx:if="{{commentsList.length>0}}">
+      <view class="messageContainer">
+        <image class="messageUpImg" src="{{messageUpSrc}}"> </image>
+        <view wx:for="{{commentsList}}" wx:key="" class="messageContent">
+          <view wx:if="{{index<commentsList.length-1}}" class="messageBox">
+            <image class="avatar" src="{{item.avatarUrl}}"> </image>
+            <view class="content">
+              <view class="name"> {{item.name}} </view>
+              <view class="message"> {{item.comment}} </view>
+            </view>
+            <view class="date"> {{item.date}} </view>
+          </view>
+          <view wx:else class="messageBox2">
+            <image class="avatar" src="{{item.avatarUrl}}"> </image>
+            <view class="content">
+              <view class="name"> {{item.name}} </view>
+              <view class="message"> {{item.comment}} </view>
+            </view>
+            <view class="date"> {{item.date}} </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <!-- <view class="messageInputContainer">
+    <view class="inputBox">
+      <input bindconfirm="bindKeyConfirm" class="messageInput" confirm-type="send" placeholder="评论" value="{{inputValue}}" placeholder-class="placeText" />
+    </view>
+  </view> -->
+</view>

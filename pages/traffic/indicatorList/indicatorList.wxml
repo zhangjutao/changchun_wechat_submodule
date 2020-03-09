@@ -1,0 +1,71 @@
+<!-- 外部container -->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="navigator">
+      <swiper
+      interval="{{1000}}"
+      duration="{{500}}"
+      display-multiple-items="{{navigaterCounts}}"
+      class="swiper"
+    >
+      <block wx:for="{{navigatorList}}" wx:for-index="idx_level_1" wx:for-item="item_level_1" wx:key="{{item_level_1}}">
+        <swiper-item>
+          <view class="navigatorNameOuter">
+            <view class="navigatorName" style="border-bottom: {{idx_level_1==currentTitle?'6rpx solid #0170C9':'none'}}"bindtap="tapTitle" id="{{idx_level_1}}">
+                {{item_level_1.name}}
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="mainContainer">
+    <!-- 具体的二级目录和三级目录版块，需要遍历渲染出来 -->
+    <block wx:for="{{currentIndexList.data}}" wx:for-index="idx_level_2" wx:for-item="item_level_2" wx:key="name">
+      <view class="secondClassTitle">{{item_level_2.name}}</view>
+      <view class="thirdClassContainer">
+        <!-- <view style="background-image: url({{indicatorImageList[currentCategoryId][currentTitle]}})"  class="indexBackgroud"/> -->
+        <view style="background-image: url({{indexIconBasicUrl+item_level_2.iconFileName+'.jpg'}})"  class="indexBackgroud"/>
+        <view class="thirdClassBlock">
+          <!-- 三级目录的一行，需要遍历渲染 -->
+          <block wx:for="{{item_level_2.data}}" wx:for-index="idx_level_3" wx:for-item="item_level_3" wx:key="name">
+              <view 
+                class="indexLine"  
+                wx:if="{{item_level_2.name!=='我的收藏'}}" 
+                bindtap="tapItemLevel3"  
+                id="{{currentTitle}}_{{idx_level_2}}_{{idx_level_3}}"
+                style="border-top:{{idx_level_3===0?'none':'1rpx solid #e4e3e3'}} "
+              >
+                  <view class="iconOuter">
+                    <image src="{{indexIcon}}" class="indexIcon"/>
+                  </view>
+                  <view class="indexNameOuter">
+                    <view class="indexName">{{item_level_3.name}}</view>
+                    <!-- TODO:以后需要加上数据来源 -->
+                    <!-- <view class="indexSource">数据来源：年报数据</view> -->
+                  </view>
+              </view>
+              <view
+                hidden="{{removeCollectObject[item_level_3.name]}}"
+                bindtouchstart="touchStart"
+                bindtouchmove="touchMove"
+                bindtouchend="touchEnd"
+                data-fulltitle="{{globalCollectionList[idx_level_3]}}"
+                id="{{currentTitle}}_{{idx_level_2}}_{{idx_level_3}}"
+              >
+                <view class="indexLine" wx:if="{{item_level_2.name==='我的收藏'}}">
+                  <view class="iconOuter">
+                    <image src="{{indexIcon}}" class="indexIcon"/>
+                  </view>
+                  <view class="indexNameOuter">
+                    <view class="indexName">{{item_level_3.name}}</view>
+                    <view class="indexSource">数据来源：年报数据</view>
+                  </view>
+                </view>
+              </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

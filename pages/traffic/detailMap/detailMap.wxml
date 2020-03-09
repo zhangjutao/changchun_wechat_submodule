@@ -1,0 +1,25 @@
+<view class="mapConatiner">
+  <map id="map"
+    longitude="{{longitude}}"
+    latitude="{{latitude}}"
+    scale="{{scale}}"
+    polyline="{{polyline}}"
+    circles="{{circles}}"
+    markers="{{markers}}"
+    controls="{{controls}}"
+    bindcontroltap="controltap"
+    style="width: 100%;height: {{mapHeight}}rpx;">
+    <cover-view class="rankTable" wx:if="{{showTable}}" style="height: {{tableHeight}}rpx; top: {{tablePosition}}rpx;">
+      <cover-view class="firstRow">
+        <cover-view class="rankText">排序</cover-view>
+        <cover-view class="regionText">地区</cover-view>
+        <cover-view class="fluxText">{{unit}}</cover-view>
+      </cover-view>
+      <cover-view wx:for="{{rankData}}" wx:for-item="item" wx:for-index="index" class="dataRow" wx:key="">
+        <cover-view class="rankText">{{index+1}}</cover-view>
+        <cover-view class="regionText">{{item.name}}</cover-view>
+        <cover-view class="fluxText">{{item.data}}</cover-view>
+      </cover-view>
+    </cover-view>
+  </map>
+</view>

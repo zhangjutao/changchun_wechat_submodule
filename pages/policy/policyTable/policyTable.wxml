@@ -1,0 +1,22 @@
+<!--fileTable.wxml-->
+<view class="fileContainer">
+  <block wx:for="{{fileList}}" wx:key="">
+    <view class="fileBox" bindtap="enterDetail" id="{{index}}">
+      <image src="{{item.imgurl}}" mode="aspectFill" class="thumbnail" />
+      <view class="fileText">
+        <view class="title">
+          <view class="titleText">{{item.filename}}</view>
+          <view class="dateText">{{item.formatTime}}</view>
+        </view>
+        <!-- <view class="desText"> {{item.des}} </view> -->
+      </view>
+    </view>
+    <!-- <view wx:if="{{item.isDownload}}">
+      <view class="progress-box">
+        <progress class="progress" percent="{{item.downloadProgress}}" show-info stroke-width="3" />
+        <icon class="progress-cancel" bindtap="cancelDownload" id="{{index}}" type="cancel"></icon>
+      </view>
+    </view> -->
+  </block>
+  <view class="textMore">{{tipText}}</view>
+</view>

@@ -1,0 +1,19 @@
+<!--policy.wxml-->
+<!-- <view class="policyContainer"> -->
+  <!--搜索框-->
+  <!-- <view class="searchContainer">
+    <view bindtap="tapSearch" class="searchBox">
+      <image class="searchImage" src="{{searchImageSrc}}"> </image> 
+      <text>搜索</text>
+    </view>
+  </view>
+  <view class="iconContainer">
+    <block wx:for="{{categories}}" wx:key="">
+      <image class="itemIcon" src="{{item.imgSrc}}" bindtap="enterPage" data-type="{{item.chinese}}"></image>
+    </block>
+  </view>
+</view> -->
+
+<view class="container">
+  <view class="comingSoon" style="background-image:url({{comingImageSrc}})"/>
+</view>

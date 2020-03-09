@@ -1,0 +1,140 @@
+.newsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .searchContainer {
+    position: fixed;
+    top: 0rpx;
+    left: 0rpx;
+    width: 750rpx;
+    height: 125rpx;
+    z-index: 100;
+    background-image: linear-gradient(-180deg, #FF3C30 0%, #FF9049 100%);
+    .searchBox {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      width: 690rpx;
+      height: 72rpx;
+      margin-top: 5rpx;
+      margin-left: 30rpx;
+      background: #FFFFFF;
+      border: 1rpx solid #FF3C30;
+      box-shadow: 0 14rpx 31rpx 0 #FF9049 100%;
+      border-radius: 40rpx;
+      //修改jx
+      // font-size: 30rpx;
+      font-size: 24rpx;
+      color: #8E8E93;
+      letter-spacing: -0.48rpx;
+      .searchImage {
+        margin-left: 294rpx;
+        //修改jx
+        // margin-top: 24rpx;
+        margin-right: 16rpx;
+        width: 26rpx;
+        height: 26rpx;
+      }
+    }
+  }
+  .newsItemArea{
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    width: 705rpx;
+    // height: 840rpx;
+    margin: 140rpx 22.5rpx 0rpx 22.5rpx;
+    // ::-webkit-scrollbar {
+    //   width: 0;
+    //   height: 0;
+    //   color: transparent;
+    // }
+    .newsBox{
+      // display: flex;
+      display: inline-block;
+      width: 337.5rpx;
+      height: 325rpx;
+      margin: 7rpx 6rpx 7rpx 6rpx;
+      color: #FFFFFF;
+    }
+  }
+  .commentsContainer {
+    display: flex;
+    flex-direction: column;
+    // position: fixed;
+    // bottom: 0rpx;
+    width: 750rpx;
+    height: 248.5rpx;
+    border-top: 0.5rpx solid #ACACAC;
+    .comments {
+      display: flex;
+      flex-direction: row;
+      width: 750rpx;
+      height: 108rpx;
+      .commentsImg {
+        width: 56rpx;
+        height: 53rpx;
+        //修改jx
+        // margin-top: 42.5rpx;
+        margin-top: 52.5rpx;
+        margin-left: 48rpx; 
+      }
+      .commentsText {
+        width: 599rpx;
+        height: 108rpx;
+        font-size: 36rpx;
+        color: #000000;
+        letter-spacing: -0.87rpx;
+        border-bottom: 1rpx solid #CDCED2;
+        .text {
+          margin-left: 28.5rpx;
+          margin-top: 46.3rpx;
+        }
+      }
+      .arrowRight {
+        width: 17rpx;
+        height: 27rpx;
+        margin-top: 58.5rpx;
+      }
+    }
+    .collect {
+      display: flex;
+      flex-direction: row;
+      width: 750rpx;
+      height: 108rpx;
+      .collectImg {
+        width: 60rpx;
+        height: 58rpx;
+        //修改jx
+        margin-top: 27rpx;
+        margin-left: 45rpx; 
+      }
+      .collectText {
+        width: 599rpx;
+        height: 108rpx;
+        font-size: 36rpx;
+        color: #000000;
+        letter-spacing: -0.87rpx;
+        border-bottom: 1rpx solid #CDCED2;
+        .text {
+          margin-left: 28.5rpx;
+          margin-top: 36.9rpx;
+        }
+      }
+      .arrowRight {
+        width: 17rpx;
+        height: 27rpx;
+        margin-top: 50rpx;
+      }
+    }
+  }
+  .test-title{
+    font-size: 22px;
+    font-weight: 700;
+    // margin-left: 20px;
+    margin: 15px 0;
+  }
+  .item{
+    margin: 10px;
+  }
+}

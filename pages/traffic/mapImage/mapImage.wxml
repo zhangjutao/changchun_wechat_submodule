@@ -1,0 +1,31 @@
+<view class="mapConatiner">
+    <movable-area class="movable-area" style="width: {{width}}rpx; height: {{height}}rpx;">
+        <movable-view class="movable-view" direction="all" x="{{x}}" y="{{y}}" style="width: {{2 * width}}rpx; height: {{2 * height}}rpx;" scale scale-min="0.5" scale-max="4" scale-value="{{scaleValue}}" inertia bindtouchend="onTouchEnd" bindchange="onChange" bindscale="onScale">
+            <image class="mapImageGreen fadeIn" src="{{mapImageGreenSrc}}" style="top: {{0}}rpx; left: {{0}}rpx; width: {{2 * width}}rpx; height: {{2 * height}}rpx;"/>
+            <image class="mapImageWater fadeIn" src="{{mapImageWaterSrc}}" style="top: {{0}}rpx; left: {{0}}rpx; width: {{2 * width}}rpx; height: {{2 * height}}rpx;"/>
+            <image class="mapImage fadeIn" src="{{mapImageSrc}}"  style="top: {{0}}rpx; left: {{0}}rpx; width: {{2 * width}}rpx; height: {{2 * height}}rpx;" bindload="onImageLoad"/>
+            <image class="mapImage fadeIn" src="{{mapImageDetailSrc}}"  style="top: {{0}}rpx; left: {{0}}rpx; width: {{2 * width}}rpx; height: {{2 * height}}rpx;" bindload="onImageDetailLoad"/>
+        </movable-view>
+    </movable-area>
+  <image class="close-button" src="../../../images/traffic/detailMap/close-button.png" bindtap="onTapClose">
+  </image>
+  <image class="zoom-in" src="../../../images/traffic/detailMap/plus.png" bindtap="onTapZoomIn">
+  </image>
+  <image class="zoom-out" src="../../../images/traffic/detailMap/shrink.png" bindtap="onTapZoomOut">
+  </image>
+  <block wx:if="{{legend}}">
+    <view class="legend">
+      <view wx:for="{{legend}}" wx:for-item="item" wx:key="" class="legend-item">
+        <view class="legend-item-symbol" style="background-color: {{item.color}}"></view>
+        <view class="legend-item-label">
+          {{item.text}}
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{summary}}">
+    <view class="summary">
+      {{summary}}
+    </view>
+  </block>
+</view>

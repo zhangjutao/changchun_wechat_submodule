@@ -1,0 +1,9 @@
+<view class="container">
+  <block  wx:for="{{dataList}}" wx:for-index="id" wx:for-item="item" wx:key="name">
+    <view class="line-outer" bindtap="enterPage" id="{{id}}">
+        <image src="{{images.icon}}" class="thumbnail" />
+        <view class="brief">{{item.title}}</view>
+        <view class="date">{{item.date}}</view>
+    </view>
+  </block>
+</view>

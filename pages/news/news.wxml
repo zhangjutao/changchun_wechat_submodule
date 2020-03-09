@@ -1,0 +1,66 @@
+<!--news.wxml-->
+<view class="newsContainer">
+  <block >
+     <!--搜索框-->
+  <view class="searchContainer">
+      <view bindtap="tapSearch" class="searchBox">
+        <image class="searchImage" src="{{searchImageSrc}}"> </image> 搜索
+      </view>
+    </view>
+    <view class="newsItemArea">
+      <block wx:for="{{titleList}}" wx:key="">
+        <image class="newsBox" src="{{item.image}}" bindtap="enterPage" id="{{index}}">
+        </image>
+      </block>
+    </view>
+    <view class="commentsContainer">
+      <view bindtap="enterComments" id="comments" class="comments">
+        <image class="commentsImg" src="{{commentsSrc}}"> </image>
+        <view class="commentsText">
+          <view class="text"> 我的留言 </view>
+        </view>
+        <image class="arrowRight" src="{{arrowRightSrc}}"> </image>
+      </view>
+      <view bindtap="enterComments" id="collect" class="collect">
+        <image class="collectImg" src="{{collectSrc}}"> </image>
+        <view class="collectText">
+          <view class="text"> 我的收藏 </view>
+        </view>
+        <image class="arrowRight" src="{{arrowRightSrc}}"> </image>
+      </view>
+    </view>
+  </block>
+  <!-- <block wx:if="{{mode==='development'}}">
+    <view class="test-title">
+      小程序各模块简介
+    </view>
+    <view>
+      1.数据在手
+      <view class="item">·天气信息展示</view>
+      <view class="item">·路网平均速度展示</view>
+      <view class="item">·数据指标搜索及展示</view>
+      <view class="item">·全路网及各区域交通指数、拥堵等级、平均速度展示</view>
+      <view class="item">·全路网及各区域交通指数、拥堵等级、平均速度展示</view>
+      <view class="item">·市区拥堵排行</view>
+      <view class="item">·过江流量排行</view>
+    </view>
+    <view>
+      2.武汉市一张图
+      <view class="item">·土地利用一张图</view>
+      <view class="item">·人口分布一张图</view>
+      <view class="item">·道路网一张图</view>
+      <view class="item">·公交网一张图</view>
+      <view class="item">·保有量一张图</view>
+      <view class="item">·出行发生一张图</view>
+      <view class="item">·道路速度一张图</view>
+      <view class="item">·拥堵路段一张图</view>
+    </view>
+    <view>
+      3.资源文件
+      <view class="item">·交通动态</view>
+      <view class="item">·决策参考</view>
+      <view class="item">·国内外对比</view>
+      <view class="item">·规范文件</view>
+    </view>
+  </block> -->
+</view>

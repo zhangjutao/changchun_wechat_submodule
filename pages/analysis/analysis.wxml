@@ -1,0 +1,5 @@
+<!--analysis.wxml-->
+  <!--搜索框-->
+<!-- <web-view src="http://wx.whtpi.com:3458/v0.7.1?version={{version}}"></web-view> -->
+<web-view src="http://one-map-wechat-changchun.btismart.com/v0.0.2/"></web-view>
+<!-- <web-view src="https://mp.weixin.qq.com/s/2_1Hehbt_Sum7I9QsDp7-g"></web-view> -->

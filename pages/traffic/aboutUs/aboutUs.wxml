@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="aboutUsPart">
+    <view class="aboutUsTitle">武汉市交通发展战略研究院</view>
+    <view class="aboutUsImg" style="background-image:url({{aboutUsSrc}})"/>
+    <view class="introduction">
+      <view class="firstParagraph">
+          武汉市交通发展战略研究院是1993年5月经武汉市编制委员会批准成立，隶属于武汉市国土资源和规划局的
+          公益型事业单位。经过近20余年的发展，已经成为集交通规划、设计、研究于一体的综合性交通科研单位。
+          院现有5个内设机构和1个全资子公司，分别为综合办公室、技术管理部、交通研究室、交通规划室、轨道交通室和武汉市交通规划设计有限公司。
+      </view>
+      <view class="secondParagraph">
+          现有在职职工76人（不含院属公司），其中正高职高级工程师7人，高级工程师11人，注册规划师12人，注册咨询师10人，
+          享受国务院专家津贴1人（退休）、享受市政府专家津贴2人、入选黄鹤英才计划1人，硕士以上学位职工24人。
+          院党总支下设3个党支部，共有党员50人。近年来我院多项成果在城市建设中发挥了重要作用，
+          其中《武汉市交通信息系统一期工程》获得全国优秀城乡规划设计一等奖、
+          《武汉市轨道交通资源共享规划》获得全国优秀城乡规划设计三等奖、《武汉市轨道交通线网规划》荣获全国优秀工程咨询成果一等奖，
+          10项成果获得省部级科技进步奖，30余项成果获得市级优秀项目奖，有力地服务了政府决策、规划管理和城市建设。
+      </view>
+    </view>
+  </view>
+  <view class="systermConstruct" style="background-image:url({{systermConstruct}})" bindtap="enterSystermPage"/>
+  <!-- <view class="dataSource" style="background-image:url({{dataResources}})"/> -->
+</view>

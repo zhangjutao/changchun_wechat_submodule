@@ -1,0 +1,65 @@
+<!--newsTable.wxml-->
+<!-- <view class="newsContainer">
+  <view class="barContainer" >
+    <view class="barBox">
+      <view class="newest" style="{{barStyle[0]}} " bindtap="tapBar" id="0"> 最新 </view>
+      <view class="collected" style="{{barStyle[1]}} " bindtap="tapBar" id="1"> 我的收藏 </view>
+      <view class="comments" style="{{barStyle[2]}} " bindtap="tapBar" id="2"> 我的留言 </view>
+    </view>
+  </view>
+  <view class="scrollContainer">
+    <block wx:if="{{barSelect===0}}">
+      <block wx:for="{{userInfo.newsList}}" wx:key="">
+        <view wx:if="{{userInfo.newsList[index].id!=userInfo.newsList[index-1].id}}" class="newsBox" style="border-color:{{item.borderColor}}" bindtap="enterDetail" id="{{index}}">
+          <image catchtap="tapCollect" id="{{index}}" class="collectImg" src="{{item.iconSrc}}"> </image>
+          <view class="title">
+            <view class="titleText"> {{item.title}} </view>
+            <view class="sourceText"> 来源：{{item.source}} </view>
+          </view>
+          <view class="dateText"> {{item.date}} </view>
+        </view>
+      </block>
+    </block>
+    <block wx:else>
+      <block wx:for="{{userInfo.newsList}}" wx:key="">
+        <block wx:if="{{barSelect===1 && item.isCollect}}">
+          <view class="newsCommentBox" style="border-color:{{item.borderColor}}" bindtap="enterDetail" id="{{index}}">
+            <view class="titleContainer">
+              <image catchtap="tapCollect" id="{{index}}" class="collectImg" src="{{item.iconSrc}}"> </image>
+              <view class="title">
+                <view class="titleText"> {{item.title}} </view>
+                <view class="sourceText"> {{item.source}} </view>
+              </view>
+              <view class="dateText"> {{item.date}} </view>
+            </view>
+            <view class="abstractText"> {{item.comment}} </view>
+          </view>
+        </block>
+        <block wx:if="{{barSelect===2 && item.comment!=='暂无留言'}}">
+          <view class="newsCommentBox" style="border-color:{{item.borderColor}}" bindtap="enterDetail" id="{{index}}">
+            <view class="titleContainer">
+              <image catchtap="tapCollect" id="{{index}}" class="collectImg" src="{{item.iconSrc}}"> </image>
+              <view class="title">
+                <view class="titleText"> {{item.title}} </view>
+                <view class="sourceText"> 来源：{{item.source}} </view>
+              </view>
+              <view class="dateText"> {{item.commentDate}} </view>
+            </view>
+            <view class="abstractText"> {{item.comment}} </view>
+          </view>
+        </block>
+      </block>
+    </block>
+    <view class="textMore">上滑加载更多</view>
+  </view>
+</view> -->
+
+<view class="container">
+  <block  wx:for="{{userInfo.newsList}}" wx:for-index="id" wx:for-item="item" wx:key="name">
+    <view class="line-outer" bindtap="enterDetail" id="{{id}}">
+        <image src="{{images.icon}}" class="thumbnail" />
+        <view class="brief">{{item.title}}</view>
+        <view class="date">{{item.date}}</view>
+    </view>
+  </block>
+</view>
