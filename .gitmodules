@@ -1,3 +1,6 @@
 [submodule "utils/transform-data"]
 	path = utils/transform-data
 	url = https://gitee.com/btismart/traffic-decision-transform-data.git
+[submodule "transform-data"]
+	path = transform-data
+	url = ../transform-data
